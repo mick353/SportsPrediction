@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Sports Data</title>
 </head>
 <body>
-    <h1>Welcome to My Website!</h1>
-    <p>This is a basic website hosted on GitHub Pages.</p>
+    <h1>Live Sports Data</h1>
+    <div id="data"></div>
+    <script>
+        fetch('data/sports_data.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('data');
+                container.innerHTML = JSON.stringify(data, null, 2);
+            });
+    </script>
 </body>
 </html>
